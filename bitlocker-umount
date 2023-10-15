@@ -1,0 +1,6 @@
+#!/bin/bash
+
+sudo umount /media/mount/nvme0n1p1
+sudo umount /media/bitlocker/nvme0n1p1
+sudo umount /media/mount/sda1
+sudo umount /media/bitlocker/sda1
