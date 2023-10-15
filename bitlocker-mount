@@ -1,2 +1,3 @@
 #!/bin/bash
-sudo python $PWD/mount.py
+local_path=$(dirname "$(readlink -f "$0")")
+sudo python $local_path/mount.py $local_path

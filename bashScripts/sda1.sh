@@ -1,6 +1,7 @@
 #!/bin/bash
 
+local_path=$(dirname "$(readlink -f "$0")")
 recovery_password="$1"
 device="sda1"
 
-sudo $PWD/bashScripts/baseScript.sh $recovery_password $device
+sudo $local_path/baseScript.sh $recovery_password $device
