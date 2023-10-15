@@ -1,6 +1,3 @@
 #!/bin/bash
-
-sudo umount /media/mount/nvme0n1p1
-sudo umount /media/bitlocker/nvme0n1p1
-sudo umount /media/mount/sda1
-sudo umount /media/bitlocker/sda1
+local_path=$(dirname "$(readlink -f "$0")")
+sudo python $local_path/umount.py $local_path
