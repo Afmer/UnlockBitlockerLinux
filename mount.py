@@ -20,7 +20,7 @@ except:
 entries = kp.entries
 mounted_devices = []
 for entry in entries:
-    exitCode = os.system(f"bash {current_directory}/bashScripts/baseScript.sh {entry.password} {entry.title}")
+    exitCode = os.system(f"bash {current_directory}/bashScripts/cryptsetup/mountBaseScript.sh {entry.password} {entry.title}")
     if exitCode!=0:
         print(f"error {exitCode}")
         continue

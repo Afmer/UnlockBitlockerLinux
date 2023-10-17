@@ -12,7 +12,7 @@ if os.path.exists(file_path):
     with open(file_path , 'r') as file:
         data = json.load(file)
         for device in data.copy():
-            exitCode = os.system(f"bash {current_directory}/bashScripts/umountBaseScript.sh {device}")
+            exitCode = os.system(f"bash {current_directory}/bashScripts/cryptsetup/umountBaseScript.sh {device}")
             if exitCode == 0 or exitCode == 256:
                 data.remove(device)
     if not data:
