@@ -5,10 +5,14 @@ import argparse
 import json
 
 parser = argparse.ArgumentParser()
-parser.add_argument('enviroment', type=str)
+parser.add_argument('--enviroment', type=str)
+parser.add_argument('--password', type=str)
 args = parser.parse_args()
-
-inputPassword = getpass.getpass("Введите пароль хранилища: ")
+password_arg = args.password
+if password_arg is not None:
+    inputPassword = password_arg
+else:
+    inputPassword = getpass.getpass("Введите пароль хранилища: ")
 current_directory = args.enviroment
 pswd_path = current_directory + "/data/bitEntries.kdbx"
 kp = None

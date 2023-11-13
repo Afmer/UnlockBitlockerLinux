@@ -1,3 +1,23 @@
 #!/bin/bash
+while [[ $# -gt 0 ]]; do
+    key="$1"
+
+    case $key in
+        -i|--password)
+            password="$2"
+            shift # Пропускаем значение аргумента
+            shift # Пропускаем сам аргумент
+            ;;
+        *)
+            # Неизвестный аргумент
+            echo "Неизвестный аргумент: $1"
+            exit 1
+            ;;
+    esac
+done
 local_path=$(dirname "$(readlink -f "$0")")
-sudo python $local_path/mount.py $local_path
+if [ -n "$password" ]; then
+    sudo python $local_path/mount.py --enviroment $local_path --password $password
+else
+    sudo python $local_path/mount.py --enviroment $local_path
+fi
